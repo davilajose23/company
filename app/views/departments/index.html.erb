@@ -37,8 +37,8 @@
                 <% @attributes.each do |attribute, _v| %>
                   <td><%= element.send(attribute)%></td>
                 <% end %>
-                <td> <%= link_to edit_employee_path(element.Ssn), class: 'btn btn-primary btn-xs' do %> <span class="fa fa-pencil"></span> <% end %> </td>
-                <td> <%= link_to employee_url(element.Ssn),
+                <td> <%= link_to edit_department_path(element.Dnumber), class: 'btn btn-primary btn-xs' do %> <span class="fa fa-pencil"></span> <% end %> </td>
+                <td> <%= link_to department_url(element.Dnumber),
                   :method => :delete,
                   :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                   :class => 'btn btn-xs btn-danger' do %> <span class="fa fa-close"></span> <% end %> </td>

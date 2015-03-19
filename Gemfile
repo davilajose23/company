@@ -23,6 +23,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'will_paginate-bootstrap'
 gem 'font-awesome-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'momentjs-rails'
 
 group :development, :test do
   gem 'spring'

@@ -1,3 +1,3 @@
 class Department < ActiveRecord::Base
-  self.primary_key = :DNumber
+  self.primary_key = :Dnumber
 end

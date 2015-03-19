@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "assignations", id: false, force: :cascade do |t|
-    t.string  "essn",       limit: 9,                          default: "", null: false
-    t.integer "project_id", limit: 4,                          default: 0,  null: false
-    t.decimal "hours",                precision: 10, scale: 2
+    t.string  "essn",  limit: 9,                          default: "", null: false
+    t.integer "pNo",   limit: 4,                          default: 0,  null: false
+    t.decimal "hours",           precision: 10, scale: 2
   end
 
-  add_index "assignations", ["project_id"], name: "pNo", using: :btree
+  add_index "assignations", ["pNo"], name: "pNo", using: :btree
 
-  create_table "departments", force: :cascade do |t|
-    t.string   "Dname",        limit: 15, default: "", null: false
+  create_table "departments", primary_key: "Dnumber", force: :cascade do |t|
+    t.string   "DName",        limit: 15, null: false
     t.string   "MgrSsn",       limit: 9
     t.datetime "MgrStartDate"
   end
@@ -58,16 +58,19 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "projects", primary_key: "pnumber", force: :cascade do |t|
-    t.string  "pname",         limit: 15
-    t.string  "plocation",     limit: 15
-    t.integer "department_id", limit: 4
+    t.string "pname",     limit: 15
+    t.string "plocation", limit: 15
+    t.string "dnum",      limit: 1
   end
 
-  add_foreign_key "assignations", "employees", column: "essn", primary_key: "Ssn", name: "assignations_ibfk_2"
-  add_foreign_key "assignations", "projects", primary_key: "pnumber", name: "assignations_ibfk_1"
-  add_foreign_key "departments", "Employee", column: "MgrSsn", primary_key: "Ssn", name: "departments_ibfk_1"
-  add_foreign_key "dependents", "Employee", column: "essn", primary_key: "Ssn", name: "dependents_ibfk_1"
-  add_foreign_key "employees", "departments", column: "DNo", primary_key: "Dnumber", name: "employees_ibfk_2"
-  add_foreign_key "employees", "employees", column: "SuperSsn", primary_key: "Ssn", name: "employees_ibfk_1"
-  add_foreign_key "locations", "departments", column: "dnumber", primary_key: "Dnumber", name: "locations_ibfk_1"
+  add_index "projects", ["dnum"], name: "dnum", using: :btree
+
+  # add_foreign_key "assignations", "employees", column: "essn", primary_key: "Ssn", name: "assignations_ibfk_2"
+  # add_foreign_key "assignations", "projects", column: "pNo", primary_key: "pnumber", name: "assignations_ibfk_1"
+  # add_foreign_key "departments", "employees", column: "MgrSsn", primary_key: "Ssn", name: "departments_ibfk_1"
+  # add_foreign_key "dependents", "employees", column: "essn", primary_key: "Ssn", name: "dependents_ibfk_1"
+  # add_foreign_key "employees", "departments", column: "DNo", primary_key: "Dnumber", name: "employees_ibfk_2"
+  # add_foreign_key "employees", "employees", column: "SuperSsn", primary_key: "Ssn", name: "employees_ibfk_1"
+  # add_foreign_key "locations", "departments", column: "dnumber", primary_key: "Dnumber", name: "locations_ibfk_1"
+  # add_foreign_key "projects", "departments", column: "dnum", primary_key: "Dnumber", name: "projects_ibfk_1"
 end

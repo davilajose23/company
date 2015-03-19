@@ -22,6 +22,5 @@ Rails.application.routes.draw do
   resources :assignations
   
   get '/reports/example', to: 'reports#example', as: :example
-  get '/reports/reporte_ventas', to: 'reports#sales_report', as: :sales_report
   
 end
