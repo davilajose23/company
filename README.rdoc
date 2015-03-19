@@ -4,31 +4,31 @@ A database example.
 Clone this project...
 
 ```
-git clone https://github.com/rgp/company.git
+  git clone https://github.com/rgp/company.git
 ```
 
 Get in the projects dir...
 
 ```
-cd company
+  cd company
 ```
 
 Now lets bundle up..
 
 ```
-bundle install
+  bundle install
 ```
 
 Create that database...
 
 ```
-rake db:create
+  rake db:create
 ```
 
 Run the database creation script...
 
 ```
-mysql -u root -p company < original_script.sql
+  mysql -u root -p company < original_script.sql
 ```
 ##### Voila!
 
@@ -37,6 +37,6 @@ mysql -u root -p company < original_script.sql
 Run the server...
 
 ```
-rails server
+  rails server
 ```
 ##### Voila!
