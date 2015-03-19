@@ -1,28 +1,42 @@
-== README
+# Company Inc.
+A database example.
+### Instalation
+Clone this project...
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+git clone https://github.com/rgp/company.git
+```
 
-Things you may want to cover:
+Get in the projects dir...
 
-* Ruby version
+```
+cd company
+```
 
-* System dependencies
+Now lets bundle up..
 
-* Configuration
+```
+bundle install
+```
 
-* Database creation
+Create that database...
 
-* Database initialization
+```
+rake db:create
+```
 
-* How to run the test suite
+Run the database creation script...
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+mysql -u root -p company < original_script.sql
+```
+##### Voila!
 
-* Deployment instructions
+### Usage
 
-* ...
+Run the server...
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+rails server
+```
+##### Voila!
