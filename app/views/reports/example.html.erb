@@ -1,0 +1,14 @@
+<table>
+<thead>
+	<tr>
+		<th>Projec name</th>
+	</tr>
+</thead>
+<tbody>
+<% @projects.each do |p| %>
+	<tr>
+		<td><%= p['pname'] %></td>
+	</tr>
+<% end %>
+</tbody>
+</table>
