@@ -2,10 +2,10 @@ module ApplicationHelper
   def connect_to_mysql
     require 'mysql2'
 
-    if (@con = Mysql2::Client.new(host: '127.0.0.1',
-                                 username: 'root',
-                                 password: '',
-                                 database: 'company'
+    if (@con = Mysql2::Client.new(host: config[Rails.env]["host"],
+                                  username: config[Rails.env]["username"]
+                                  password: config[Rails.env]["password"]
+                                  database: config[Rails.env]["database"]
                                 ))
     else
       fail 'Could not connect'
